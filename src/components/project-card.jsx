@@ -60,18 +60,15 @@ export default function ProjectCard({
           </a>
 
           {documentLink && (
-            <button
-              onClick={() => {
-                // ensure we reset iframe status each time modal opens
-                setIframeError(false);
-                setIframeLoaded(false);
-                setShowPDF(true);
-              }}
+            <a
+              href={safeDocumentLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-2 text-sm font-medium text-white bg-emerald-600 
                          rounded-full hover:bg-emerald-500 transition-colors"
             >
               View Document 📄
-            </button>
+            </a>
           )}
         </div>
       </div>
