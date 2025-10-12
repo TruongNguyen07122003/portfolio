@@ -14,6 +14,22 @@ export default function ProjectCard({
   const [showPDF, setShowPDF] = useState(false);
   const [iframeError, setIframeError] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
+  // sanitize document link: remove leading /public if present, ensure starts with '/', encode spaces
+  const getSafeLink = (link) => {
+    if (!link) return "";
+    let l = String(link).trim();
+    // remove accidental "/public/" prefix (common mistake)
+    l = l.replace(/^\/?public\/+/i, "/");
+    // ensure absolute-root path for local public files
+    if (!/^https?:\/\//i.test(l) && !l.startsWith("/")) l = "/" + l;
+    try {
+      l = encodeURI(l);
+    } catch (e) {
+      /* noop */
+    }
+    return l;
+  };
+  const safeDocumentLink = getSafeLink(documentLink);
 
   return (
     <div
@@ -112,7 +128,7 @@ export default function ProjectCard({
             {/* Controls / fallback */}
             <div className="absolute top-3 left-3 z-10 flex gap-2">
               <a
-                href={documentLink}
+                href={safeDocumentLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 py-1 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-500"
@@ -128,7 +144,7 @@ export default function ProjectCard({
 
             {!iframeError ? (
               <iframe
-                src={documentLink}
+                src={safeDocumentLink}
                 title="Project Document"
                 className="w-full h-full border-none rounded-b-2xl"
                 onLoad={() => setIframeLoaded(true)}
@@ -145,7 +161,7 @@ export default function ProjectCard({
                     may block embedding). You can still open it in a new tab.
                   </p>
                   <a
-                    href={documentLink}
+                    href={safeDocumentLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-4 py-2 bg-emerald-600 text-white rounded-md hover:bg-emerald-500"
