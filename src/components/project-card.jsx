@@ -12,6 +12,8 @@ export default function ProjectCard({
 }) {
   const [expanded, setExpanded] = useState(false);
   const [showPDF, setShowPDF] = useState(false);
+  const [iframeError, setIframeError] = useState(false);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   return (
     <div
@@ -43,7 +45,12 @@ export default function ProjectCard({
 
           {documentLink && (
             <button
-              onClick={() => setShowPDF(true)}
+              onClick={() => {
+                // ensure we reset iframe status each time modal opens
+                setIframeError(false);
+                setIframeLoaded(false);
+                setShowPDF(true);
+              }}
               className="px-4 py-2 text-sm font-medium text-white bg-emerald-600 
                          rounded-full hover:bg-emerald-500 transition-colors"
             >
@@ -101,11 +108,53 @@ export default function ProjectCard({
             >
               ✖ Close
             </button>
-            <iframe
-              src={documentLink}
-              title="Project Document"
-              className="w-full h-full border-none rounded-b-2xl"
-            />
+
+            {/* Controls / fallback */}
+            <div className="absolute top-3 left-3 z-10 flex gap-2">
+              <a
+                href={documentLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-500"
+              >
+                Open in new tab
+              </a>
+              {!iframeLoaded && (
+                <span className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-md text-sm">
+                  Loading preview...
+                </span>
+              )}
+            </div>
+
+            {!iframeError ? (
+              <iframe
+                src={documentLink}
+                title="Project Document"
+                className="w-full h-full border-none rounded-b-2xl"
+                onLoad={() => setIframeLoaded(true)}
+                onError={() => setIframeError(true)}
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="text-center px-6">
+                  <p className="text-lg font-medium text-gray-800 mb-2">
+                    Preview unavailable
+                  </p>
+                  <p className="text-sm text-gray-600 mb-4">
+                    The document couldn't be embedded (CORS or X-Frame-Options
+                    may block embedding). You can still open it in a new tab.
+                  </p>
+                  <a
+                    href={documentLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-4 py-2 bg-emerald-600 text-white rounded-md hover:bg-emerald-500"
+                  >
+                    Open Document 📄
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
