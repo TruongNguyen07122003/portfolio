@@ -1,0 +1,495 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Root variables */
+:root {
+  --bg-1: #ffffff;
+  --bg-2: #f8fafc;
+  --accent: 59 130 246; /* rgb for blue 500 */
+}
+
+/* Base styles */
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg-1) 100%);
+    background-attachment: fixed;
+    color: theme("colors.slate.900");
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: theme("colors.slate.900");
+  }
+
+  a {
+    color: theme("colors.sky.600");
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Reusable component styles */
+@layer components {
+  .container-max {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .card {
+    background: #ffffff;
+    border-radius: 0.75rem; /* rounded-xl */
+    border: 1px solid rgba(226, 232, 240, 1); /* gray-100 */
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.04);
+    padding: 1.5rem; /* p-6 */
+  }
+
+  .card-title {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600;
+    color: #0f172a; /* slate-800 */
+  }
+
+  .muted {
+    color: #6b7280; /* slate-500 */
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background: #f1f5f9; /* slate-100 */
+    font-size: 0.875rem; /* text-sm */
+    color: #374151; /* slate-700 */
+  }
+
+  .dot-primary {
+    color: rgba(var(--accent), 1);
+    margin-right: 0.35rem;
+    line-height: 0;
+  }
+
+  /* Navbar */
+  .navbar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 60;
+    display: block;
+    padding: 12px 0;
+    transition: background 200ms ease, backdrop-filter 200ms ease,
+      box-shadow 200ms;
+  }
+
+  .navbar .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  /* scrolled state: fix the navbar and give translucent backdrop */
+  .navbar.scrolled {
+    position: fixed;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px) saturate(120%);
+    box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
+  }
+
+  /* main content should respect navbar height */
+  main.relative {
+    padding-top: 92px;
+  }
+
+  .navbar .logo {
+    font-weight: 700;
+    color: #071032;
+  }
+
+  .nav-items {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .nav-items a,
+  .nav-items .active {
+    color: #0f172a;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .nav-items .active {
+    color: rgba(var(--accent), 1);
+    border-bottom: 2px solid rgba(var(--accent), 0.2);
+  }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 6px;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    right: 16px;
+    top: 64px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .mobile-menu-item {
+    background: transparent;
+    border: 0;
+    text-align: left;
+    padding: 6px 10px;
+    color: #071032;
+  }
+}
+
+/* Animated background (subtle gradient + blur) */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(
+      600px 600px at 10% 20%,
+      rgba(237, 242, 247, 0.7),
+      transparent 20%
+    ),
+    radial-gradient(
+      600px 600px at 90% 80%,
+      rgba(235, 245, 255, 0.6),
+      transparent 18%
+    );
+  opacity: 1;
+  mix-blend-mode: normal;
+  filter: blur(10px) saturate(110%);
+}
+/* Navbar / Navigation (handled above in @layer components) */
+/* Section helpers */
+.section {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.hero {
+  padding-top: 96px;
+  padding-bottom: 64px;
+}
+
+.hero-inner {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+.avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--accent), 0.12),
+    rgba(var(--accent), 0.06)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: rgba(var(--accent), 1);
+}
+
+.hero-content .name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #071032;
+}
+.hero-content .subtitle {
+  color: #334155;
+  margin-top: 6px;
+}
+.hero-content .small-muted {
+  color: #64748b;
+}
+.hero-content a {
+  color: rgba(var(--accent), 1);
+  display: block;
+}
+
+/* Side navigation (desktop) */
+.navigation-side {
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+  display: none; /* show on larger screens via media query */
+}
+
+.nav-column {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.nav-item {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: monospace;
+  font-size: 13px;
+  color: #64748b;
+  cursor: pointer;
+}
+.nav-item.active {
+  color: rgba(var(--accent), 1);
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  .navigation-side {
+    display: block;
+  }
+}
+
+/* Spotlight effect that follows the mouse */
+.spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(var(--accent), 0.14) 0%,
+    rgba(var(--accent), 0.06) 10%,
+    transparent 40%
+  );
+  transition: background-position 0.08s linear;
+}
+
+/* Inner blurred circle (always visible even on white bg) */
+.spotlight-inner {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(var(--accent), 0.18);
+  filter: blur(48px);
+  pointer-events: none;
+  z-index: 41;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+
+/* Small responsive tweaks */
+@media (max-width: 768px) {
+  .spotlight-inner {
+    width: 220px;
+    height: 220px;
+    filter: blur(40px);
+  }
+
+  .container-max {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-items {
+    display: none;
+  }
+}
+
+/* Hero section */
+.hero {
+  padding: 40px 0 80px;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(2, 6, 23, 0.06);
+  border: 8px solid rgba(226, 240, 255, 0.7);
+  background: white;
+  flex-shrink: 0;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatar-fallback {
+  font-weight: 700;
+  color: #071032;
+  font-size: 28px;
+}
+
+.hero-content .name {
+  font-size: 56px;
+  font-weight: 800;
+  color: #071032;
+  margin: 0 0 12px 0;
+}
+
+.hero-content .subtitle {
+  color: #6b7280;
+  font-size: 18px;
+  margin: 0 0 6px 0;
+}
+
+.small-muted {
+  color: #6b7280;
+}
+
+@media (max-width: 900px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 16px;
+  }
+
+  .hero-content .name {
+    font-size: 32px;
+  }
+}
+
+/* Certificate card small view button */
+.certificate-card {
+  position: relative;
+  overflow: visible;
+  /* make room for the small view pill so it doesn't overlap the title */
+  padding-top: 22px;
+}
+
+.certificate-card .cert-view {
+  position: absolute;
+  top: 8px;
+  left: -10px; /* shift slightly outside the card */
+  background: rgba(59, 130, 246, 0.14); /* soft blue */
+  color: rgba(59, 130, 246, 1);
+  padding: 4px 10px; /* slightly smaller */
+  font-size: 12px;
+  border-radius: 9999px; /* pill */
+  border: 1px solid rgba(59, 130, 246, 0.14);
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.06);
+  display: inline-block;
+}
+
+.certificate-card .cert-view:hover {
+  background: rgba(59, 130, 246, 0.18);
+}
+
+/* Portfolio gallery grid: dim non-hovered images and highlight hovered one */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-img {
+  transition: filter 0.45s ease, opacity 0.45s ease;
+  will-change: filter, opacity;
+  transform-origin: center center;
+  display: block;
+  width: 100%;
+  height: 16rem; /* match Tailwind h-64 so cards keep original proportions */
+  object-fit: cover;
+}
+
+/* when the grid is hovered, dim all items that are NOT hovered */
+.gallery-grid:hover .gallery-item:not(:hover) .gallery-img {
+  filter: grayscale(100%) brightness(45%);
+  transform: scale(1);
+  opacity: 0.85;
+}
+
+/* hovered item: restore color, slightly scale up, bring above others */
+.gallery-item:hover .gallery-img {
+  filter: none;
+  /* keep original size — no scaling */
+  z-index: 5;
+  opacity: 1;
+}
+
+.overlay {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+}
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* gentle radial glow overlay used on hover */
+.radial-glow {
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.18),
+    transparent 45%
+  );
+}
