@@ -328,6 +328,12 @@ export default function Experience() {
               pdf="/certs/FPT_English.pdf"
               tags={["English", "Communication", "Language"]}
             />
+            <CertificateCard
+              title="Academic English: Writing"
+              meta="Coursera · 2024"
+              pdf="/certs/koimine.pdf"
+              tags={["Business Analysis", "Requirements", "Documentation"]}
+            />
           </div>
         </section>
       </div>
