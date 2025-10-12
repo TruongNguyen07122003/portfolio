@@ -15,7 +15,7 @@ const projects = [
     year: "2025",
     image: cakeStory,
     link: "https://github.com/TruongNguyen07122003/cakestory-fe",
-    documentLink: "/Docs/Report7_CakeStory.pdf",
+    documentLink: "/docs/Report7_CakeStory.pdf",
   },
   {
     title:
@@ -44,7 +44,7 @@ const projects = [
     year: "2024",
     image: Furniture,
     link: "https://github.com/TruongNguyen07122003/Interior_Project", // hoặc link demo / báo cáo
-    documentLink: "/Docs/FurnitureDocs.pdf",
+    documentLink: "/docs/FurnitureDocs.pdf",
   },
   {
     title: "KOimine - Koi Health Monitoring & Aquarium Supplies Platform",
@@ -55,7 +55,7 @@ const projects = [
     year: "2024",
     image: Koimine,
     link: "https://github.com/TruongNguyen07122003/Fall2024SWD392_SE1707_Group3_FE",
-    documentLink: "/Docs/koimine.pdf",
+    documentLink: "/docs/koimine.pdf",
   },
 ];
 
