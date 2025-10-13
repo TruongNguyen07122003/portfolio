@@ -33,35 +33,78 @@ export default function About() {
             </p>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold">Technical Skills</h3>
-            <ul className="space-y-2 text-base muted">
-              <li className="flex items-start gap-2">
-                <span className="dot-primary mt-1">•</span>
-                <span>Programming: C, JavaScript, HTML, CSS</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="dot-primary mt-1">•</span>
-                <span>Database & Query: SQL, NoSQL (MongoDB, Firebase)</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="dot-primary mt-1">•</span>
-                <span>UX/UI Design: Wireframing, Prototyping</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="dot-primary mt-1">•</span>
-                <span>
-                  Business Analysis: User Story Mapping, Acceptance Criteria
-                  Definition, Requirement Elicitation
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="dot-primary mt-1">•</span>
-                <span>
-                  Project Management: JIRA, Agile/Scrum, WBS, SRS Documentation
-                </span>
-              </li>
-            </ul>
+          <div className="grid md:grid-cols-2 gap-8 pt-6">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">Expertise</h3>
+              <ul className="space-y-2 text-base muted">
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>Management Skills</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>Problem Solving</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>Negotiation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>Communication Skills</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>Critical Thinking</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">Technical Skills</h3>
+              <ul className="space-y-2 text-base muted">
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>Programming: C, JavaScript, HTML, CSS</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>Database & Query: SQL, NoSQL (MongoDB, Firebase)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>UX/UI Design: Wireframing, Prototyping</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>
+                    Business Analysis: User Story Mapping, Acceptance Criteria
+                    Definition, Requirement Elicitation
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>
+                    Project Management: JIRA, Agile/Scrum, WBS, SRS
+                    Documentation
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">Language</h3>
+              <ul className="space-y-2 text-base muted">
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>Vietnamese (Native)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="dot-primary mt-1">•</span>
+                  <span>English</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
