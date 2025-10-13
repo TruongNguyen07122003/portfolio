@@ -15,8 +15,7 @@ export default function ProjectCard({
   const [iframeError, setIframeError] = useState(false);
   const [iframeLoaded, setIframeLoaded] = useState(false);
   // sanitize document link: remove leading /public if present, ensure starts with '/', encode spaces
-  
- 
+
   return (
     <div
       className="relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl 
@@ -125,7 +124,7 @@ export default function ProjectCard({
               )}
             </div>
 
-              {!iframeError ? (
+            {!iframeError ? (
               <iframe
                 src={documentLink}
                 title="Project Document"
