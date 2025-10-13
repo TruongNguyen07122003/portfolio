@@ -77,7 +77,7 @@ export default function Footer() {
           className="w-full md:max-w-md bg-white/10 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-5 flex flex-col gap-4 shadow-lg backdrop-blur-md"
         >
           <div className="flex items-center gap-3 w-full">
-            <div className="p-2 bg-white/10 dark:bg-gray-800 rounded-md">
+            <div className="p-2  rounded-md">
               <Mail size={18} className="text-gray-300" />
             </div>
             <input
