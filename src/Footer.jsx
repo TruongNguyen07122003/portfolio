@@ -32,7 +32,7 @@ export default function Footer() {
               alt="Logo"
               className="w-10 h-10 rounded-full object-cover shadow"
             />
-            <span className="font-semibold text-gray-800 dark:text-gray-100 text-xl">
+            <span className="font-semibold text-gray-900 text-xl">
               Nguyễn Nhật Trường
             </span>
           </div>
@@ -74,7 +74,7 @@ export default function Footer() {
         {/* ===== Right: Contact Form ===== */}
         <form
           onSubmit={handleSubmit}
-          className="w-full md:max-w-md bg-white/10 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-5 flex flex-col gap-4 shadow-lg backdrop-blur-md"
+          className="w-full md:max-w-md bg-white border border-gray-200 rounded-2xl p-5 flex flex-col gap-4 shadow-lg"
         >
           <div className="flex items-center gap-3 w-full">
             <div className="p-2  rounded-md">
