@@ -64,7 +64,7 @@ export default function Certificates() {
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <h3 className="card-title">{cert.title}</h3>
-                  <div className="mt-2 muted">
+                  <div className="mt-2 muted text-base">
                     {cert.issuer} • {cert.date}
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export default function Certificates() {
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-xl font-bold">{selectedCert.title}</h3>
-                <p className="text-sm muted">
+                <p className="text-base muted">
                   {selectedCert.issuer} • {selectedCert.date}
                 </p>
               </div>

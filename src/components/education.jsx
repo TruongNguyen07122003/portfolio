@@ -34,7 +34,9 @@ function TimelineItem({
           )}
         </div>
 
-        {children && <div className="mt-3 text-gray-600">{children}</div>}
+        {children && (
+          <div className="mt-3 text-gray-600 text-base">{children}</div>
+        )}
       </div>
     </div>
   );
@@ -181,7 +183,7 @@ export default function Experience() {
               subtitle="(Thesis Passed, One Course Remaining)"
               date="10/2021 - now"
             >
-              <p className="text-sm">
+              <p className="text-base">
                 <strong>GPA:</strong> 7.4 / 10
               </p>
             </TimelineItem>

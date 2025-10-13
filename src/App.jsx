@@ -11,6 +11,7 @@ import ProjectsPage from "./pages/ProjectsPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import PortfolioGallery from "./pages/PortfolioGallery.jsx";
 import Education from "./components/education.jsx";
+import Footer from "./Footer.jsx";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Suspense
           fallback={<div className="p-8 text-center">Loading...</div>}
         />
+        <Footer />
       </div>
     </BrowserRouter>
   );

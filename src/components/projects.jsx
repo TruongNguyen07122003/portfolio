@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title:
-      "SENDO Farm - Software Impleementation and Business Analysis Support Staff",
+      "SENDO Farm - Software Implementation and Business Analysis Support Staff",
     description:
       "Supported the deployment of SENDO Farm Management System. Conducted requirement analysis, demo & UAT sessions, user training, and proposed improvement solutions for warehouse operations.",
     tags: ["Requirements", "UAT", "Training", "Deployment"],

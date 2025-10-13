@@ -73,7 +73,7 @@ export default function ProjectCard({
         </div>
 
         {/* Mô tả có thể thu gọn / mở rộng */}
-        <div className="mt-3 text-sm text-gray-600 leading-relaxed">
+        <div className="mt-3 text-base text-gray-600 leading-relaxed">
           <p className={expanded ? "" : "line-clamp-3"}>{description}</p>
           <button
             onClick={() => setExpanded(!expanded)}

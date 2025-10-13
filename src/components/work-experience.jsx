@@ -41,7 +41,7 @@ export default function WorkExperience() {
               </div>
             </div>
 
-            <ul className="space-y-2 muted text-sm leading-relaxed">
+            <ul className="space-y-2 muted text-base leading-relaxed">
               <li className="flex items-start gap-2">
                 <span className="dot-primary mt-1">•</span>
                 <span>
@@ -126,7 +126,7 @@ export default function WorkExperience() {
               </div>
             </div>
 
-            <ul className="space-y-2 muted text-sm leading-relaxed">
+            <ul className="space-y-2 muted text-base leading-relaxed">
               <li className="flex items-start gap-2">
                 <span className="dot-primary mt-1">•</span>
                 <span>
