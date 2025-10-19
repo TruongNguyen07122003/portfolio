@@ -58,7 +58,7 @@ export default function Hero() {
               >
                 <a
                   className="badge cv-badge bg-indigo-100 hover:bg-indigo-500"
-                  href="/cv/Nguyen Nhat Truong.pdf"
+                  href="/cv/Nguyen Nhat Truong CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   download
